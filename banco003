@@ -1,0 +1,27 @@
+import sqlite3
+
+#conectar com o banco de dados
+conexao = sqlite3.connect('db_teste.db')
+
+#criar um cursor
+cursor = conexao.cursor()
+
+
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS usuario (
+                    id INTEGER PRIMARY KEY ,
+                    nome TEXT NOT NULL,
+                    idade INTEGER )''')
+
+cursor.execute("INSERT INTO usuario (nome, idade) VALUES (?, ?)", ('Chris', 27))
+
+conexao.commit()
+cursor.execute("SELECT * FROM usuario")
+
+for linha in cursor.fetchall():
+    print (linha)
+
+print("até aqui")
+
+#fecha a conexao com o banco de dados
+conexao.close()
