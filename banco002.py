@@ -17,4 +17,15 @@ db.connect()
 db.create_tables([User])
 
 #adição de um novo usuário
-#novo = user(nome='Chris',idade=27)
+novo = user(nome='Chris',idade=27)
+
+#novo = User(nome='jake' idade =22)
+#novo = save()
+
+#consulta de usuarios
+users = User.select()
+for user in user:
+    print(user.nome,user.idade)
+
+userChris = User.get(nome="Chris")
+print(userChris.nome,userChris.idade)
