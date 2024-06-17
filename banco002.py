@@ -7,7 +7,7 @@ db = SqliteDatabase('example1.db')
 #definição do modelo
 class User(Model):
     nome = CharField()
-    idade = IntegerField
+    idade = IntegerField ()
 
     class Meta:
         database = db
