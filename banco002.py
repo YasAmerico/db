@@ -63,3 +63,27 @@ def encontrar_usuario_por_nome_idade(nome,idade):
 users =encontrar_usuario_por_nome_idade('Felix',24)
 for user in users:
     print(f'Name:{user.nome},Idade:{user.idade}')
+
+#função para deletar um usuario por nome e idade 
+def delete_user_by_nome_and_idade (nome,idade):
+    query =User.delete().where(User.nome == nome,User.idade == idade)
+    delect_count =query.execute()
+    if delect_count > 0 :
+        print(f'Deleted{delect_count}user(s)')
+    else:
+        print('No user found to delete')
+
+#função para atualizar a idade de um usuário por nome 
+def update_user_idade_by_nome(nome, new_idade):
+    query = User.update(idade=new_idade).where(User.nome == nome)
+    updated_count = query.execute()
+    if updated_count > 0 :
+        print(f'Updated{updated_count}user(s)')
+    else:
+        print('No user found to update')
+
+#testar a função de deletar
+delete_user_by_nome_and_idade ('jake',22) 
+
+#testar a função de atualizar 
+update_user_idade_by_nome('Chris',27)
