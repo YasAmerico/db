@@ -87,3 +87,11 @@ delete_user_by_nome_and_idade ('jake',22)
 
 #testar a função de atualizar 
 update_user_idade_by_nome('Chris',27)
+
+#verificar as mudanças
+lista= User.select()
+for user in lista:
+    print(f'nome:{user.nome},idade:{user.idade}')
+
+    #desconectar do banco de dados
+    db.close()
